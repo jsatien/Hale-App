@@ -1,69 +1,63 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
-import { Card } from 'react-native-paper';
-import styled from "styled-components/native";
-
-const Title = styled.Text`
-padding: 15px;
-color: red;
-
-`;
+import { SvgXml } from "react-native-svg";
+import star from "../../../../assets/star";
+import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typhography/text.component";
+import {   
+    Info,
+    RestaurantCard,
+    RestaurantCardCover,
+    Rating,
+    Section,
+    SectionEnd,
+    Open } 
+from "./restaurant-info-card.style";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const {
-        name = 'Restaurant Name',
+        name = 'FOOD NAME',
+        price = 'Php 99.99',
         icon = '#',
         photo = ["https://bit.ly/3IRvCTl"],
         address = 'Address | Location',
         isOpenNow = true,
         rating = 5,
-        isClosedTemporarily
+        isClosedTemporarily = true,
     } = restaurant;
+
+const ratingArray = Array.from(new Array(Math.floor(rating)));
     return (
         <>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bit.ly/31OKLnB' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bzfd.it/3oJMxPu' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bit.ly/31OKLnB' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bzfd.it/3oJMxPu' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bit.ly/31OKLnB' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
-            <Card elevation={5} style={styles.card}>
-                <Card.Cover source={{ uri: 'https://bzfd.it/3oJMxPu' }} />
-                <Title>
-                    {name}
-                </Title>
-            </Card>
+            <RestaurantCard>
+                <RestaurantCardCover source={{ uri: 'https://bit.ly/31OKLnB' }} />
+                <Info>
+                    <Text variant="label">{name}</Text>
+                        <Section>
+                            <Rating>
+                                {ratingArray.map(() => (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <SvgXml xml={star} width={20} height={20} />
+                                ))}
+                            </Rating>
+                            <SectionEnd>
+                            <Spacer position={"left"} size="large">
+                                {isClosedTemporarily && (
+                                    <Text variant="error">
+                                        CLOSE TEMPORARILY
+                                    </Text>
+                                )}
+                            </Spacer>
+                            <Spacer position={"left"} size="large">
+                                {isOpenNow && <Open xml={open} width={20} height={20}/>}
+                            </Spacer>
+                            </SectionEnd>
+                        </Section>
+                    <Text varinat="label">{price}</Text>
+                    <Text varinat="label">{address}</Text>
+                </Info>
+            </RestaurantCard>
         </>
     )
 };
 
-const styles = StyleSheet.create({
-    card:{
-        padding: 15,
-        marginBottom: 10
-    }
-})
