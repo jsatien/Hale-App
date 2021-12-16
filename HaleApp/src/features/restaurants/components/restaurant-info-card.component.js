@@ -18,8 +18,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const {
         name = 'FOOD NAME',
         price = 'Php 99.99',
-        icon = '#',
-        photo = ["https://bit.ly/3IRvCTl"],
+        // icon = '#',
+        photos = ["https://bit.ly/3IRvCTl"],
         address = 'Address | Location',
         isOpenNow = true,
         rating = 5,
@@ -30,11 +30,12 @@ const ratingArray = Array.from(new Array(Math.floor(rating)));
     return (
         <>
             <RestaurantCard>
-                <RestaurantCardCover source={{ uri: 'https://bit.ly/31OKLnB' }} />
+                <RestaurantCardCover source={{ uri: photos[0] }} />
                 <Info>
                     <Text variant="label">{name}</Text>
                         <Section>
                             <Rating>
+                                {/* index = filler */}
                                 {ratingArray.map(() => (
                                     // eslint-disable-next-line react/jsx-key
                                     <SvgXml xml={star} width={20} height={20} />

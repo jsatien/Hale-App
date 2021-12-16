@@ -15,7 +15,7 @@ export const RestaurantCard = styled(Card)`
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
-    background-color: ${props => props.theme.colors.palette.bud};
+    background-color: ${props => props.theme.colors.ui.tertiary};
 `;
 
 export const Rating = styled(View)`
