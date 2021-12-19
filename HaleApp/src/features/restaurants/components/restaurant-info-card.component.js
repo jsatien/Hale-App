@@ -20,7 +20,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         price = 'Php 99.99',
         // icon = '#',
         photos = ["https://bit.ly/3IRvCTl"],
-        address = 'Address | Location',
+        vicinity = 'Address | Location',
         isOpenNow = true,
         rating = 5,
         isClosedTemporarily = true,
@@ -55,7 +55,7 @@ const ratingArray = Array.from(new Array(Math.floor(rating)));
                             </SectionEnd>
                         </Section>
                     <Text varinat="label">{price}</Text>
-                    <Text varinat="label">{address}</Text>
+                    <Text varinat="label">{vicinity}</Text>
                 </Info>
             </RestaurantCard>
         </>

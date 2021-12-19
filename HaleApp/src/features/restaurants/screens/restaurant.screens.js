@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
 import styled from "styled-components/native";
@@ -33,12 +33,14 @@ export const RestaurantScreen = () => {
                             iconColor='#10460a'
                         /> 
                 </SearchBarContainer>
+                {/* <><ActivityIndicator size="large" color="#00ff00"/></> */}
                 <FlatList
                     data={restaurants}
                     renderItem={({item}) => <RestaurantInfoCard restaurant={item} />}
                     keyExtractor ={(item) => item.name}
                     contentContainerStyle={{ paddingBottom:16}} 
                 />
+                
             </SafeArea>
     );
 };
