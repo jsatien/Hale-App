@@ -8,7 +8,7 @@ export const Info = styled(View)`
 `;
 
 export const RestaurantCard = styled(Card)`
-    elevation: 5;
+    elevation: 4;
     margin: ${props => props.theme.sizes[2]};
     background-color: ${props => props.theme.colors.palette.granny};
 

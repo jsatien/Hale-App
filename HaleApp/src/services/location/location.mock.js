@@ -1,5 +1,27 @@
 export const locations = {
-antwerp: {
+    manila: {
+        results: [
+        {
+            geometry: {
+            location: {
+                lng: 120.984222,
+                lat: 14.599512,
+            },
+            viewport: {
+                northeast: {
+                    lng: 120.984222,
+                    lat: 14.599512,
+                },
+                southwest: {
+                    lng: 120.984222,
+                    lat: 14.599512,
+                },
+            },
+            },
+        },
+        ],
+    },
+    antwerp: {
     results: [
     {
         geometry: {

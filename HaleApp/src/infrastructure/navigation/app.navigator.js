@@ -6,19 +6,13 @@ import { MaterialCommunityIcons, Ionicons  } from '@expo/vector-icons';
 
 import { RestaurantNavigator } from './restaurant.navigator';
 import { SafeArea } from '../../components/utility/safearea.component';
+import { MapScreen } from "../../features/map/screens/map.screen";
 
 const Tab = createBottomTabNavigator();
 const Settings = () => {
 return (
 <SafeArea>
     <Text>Settings</Text>
-</SafeArea>
-);
-}
-const Restaurant = () => {
-return (
-<SafeArea>
-    <Text>Restaurant</Text>
 </SafeArea>
 );
 }
@@ -37,8 +31,8 @@ export const AppNavigator = () => (
             headerShown: false,
             tabBarIcon: ({ focused, color, size }) => {
                 let iconName,icon2=false;      
-                if (route.name === 'Restaurant') {
-                iconName = focused ? 'md-restaurant' : 'md-restaurant-outline';
+                if (route.name === 'Map') {
+                iconName = focused ? 'map' : 'map-outline';
                 } else if (route.name === 'Settings') {
                 iconName = focused ? 'settings' : 'settings-outline';
                 return <Ionicons name={iconName} size={size} color={color} />
@@ -61,7 +55,7 @@ export const AppNavigator = () => (
             tabBarInactiveTintColor: 'gray',
             })}>
             <Tab.Screen name='Food' component={RestaurantNavigator}/>
-            <Tab.Screen name='Restaurant' component={Restaurant}/>
+            <Tab.Screen name='Map' component={MapScreen}/>
             <Tab.Screen name='Tray' component={Tray}/>
             <Tab.Screen name='Settings' component={Settings}/>
             </Tab.Navigator>

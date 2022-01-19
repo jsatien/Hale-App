@@ -1,17 +1,26 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 
 import { RestaurantScreen } from '../../features/restaurants/screens/restaurant.screens';
+import { RestaurantDetailScreen } from '../../features/restaurants/screens/restaurant-detail.screen';
 
 const RestaurantStack = createStackNavigator();
 
 export const RestaurantNavigator = () => {
     return (
-        <RestaurantStack.Navigator headerMode="none">
+        <RestaurantStack.Navigator 
+        screenOptions={{
+            ...TransitionPresets.SlideFromRightIOS,
+            headerShown: false,
+        }}>
             <RestaurantStack.Screen 
-                name="Restaurants"
+                name="Restaurant"
                 component = {RestaurantScreen}
             />
+            <RestaurantStack.Screen 
+                name="RestaurantDetail"
+                component = {RestaurantDetailScreen}
+            />            
         </RestaurantStack.Navigator>
     );
 };

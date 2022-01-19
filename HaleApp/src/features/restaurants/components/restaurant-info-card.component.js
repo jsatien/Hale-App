@@ -4,6 +4,9 @@ import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typhography/text.component";
+import { View } from "react-native";
+import { Favourite } from "../../../components/favourites/favourite.component";
+
 import {   
     Info,
     RestaurantCard,
@@ -24,22 +27,25 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         isOpenNow = true,
         rating = 5,
         isClosedTemporarily = true,
-        placeID
+        placeId,
     } = restaurant;
 
 const ratingArray = Array.from(new Array(Math.floor(rating)));
     return (
         <>
-            <RestaurantCard>
-                <RestaurantCardCover source={{ uri: photos[0] }} />
-                <Info>
+            <RestaurantCard elevation={5}>
+                <View>
+                    <Favourite restaurant={restaurant}/>
+                        <RestaurantCardCover source={{ uri: photos[0] }} />
+                </View>
+                    <Info>                
                     <Text variant="label">{name}</Text>
                         <Section>
                             <Rating>
                                 {/* index = filler */}
                                 {ratingArray.map((_, i) => (
                                     // eslint-disable-next-line react/jsx-key
-                                    <SvgXml key={`star-${placeID}-${i}`} xml={star} width={20} height={20} />
+                                    <SvgXml key={`star-${placeId}-${i}`} xml={star} width={20} height={20} />
                                 ))}
                             </Rating>
                             <SectionEnd>
