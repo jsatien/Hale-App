@@ -1,6 +1,6 @@
 Hale Food App
 
-To Do
+✔ To Do ✔
 • search filter
 • food details (allergen and nutrient info) 
 • favourites 
@@ -23,4 +23,4 @@ To Do
 • google maps integration
 • location
 
-✔ 
+ 
