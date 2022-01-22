@@ -10,7 +10,7 @@ const SearchBarContainer = styled(View)`
     backgroundColor: "rgba(0,0,0,0)";
 `;
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggle}) => {
     const { keyword, search } = useContext(LocationContext);
     const [searchKeyword, setSearchKeyword ] = useState(keyword);
     useEffect(() => {
@@ -20,8 +20,9 @@ export const Search = () => {
     return (
     <SearchBarContainer>
         <Searchbar
-            icon={ "heart"}
-            
+            icon={isFavouritesToggled ? "heart" : "heart-outline"}
+            iconColor={isFavouritesToggled ? "#10460a": "#757575"}
+            onIconPress={onFavouritesToggle}
             placeholder="Search Food, Shops, Restaurant"
             placeholderTextColor={'#10460a'}
             value={searchKeyword}

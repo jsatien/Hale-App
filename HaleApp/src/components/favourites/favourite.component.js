@@ -7,8 +7,8 @@ import { FavouritesContext } from "../../services/favourites/favourites.context"
 
 const FavouriteButton = styled(TouchableOpacity)`
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 15px;
+    right: 15px;
     z-index: 9;
 `;
 

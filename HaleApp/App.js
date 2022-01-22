@@ -1,10 +1,25 @@
 import { StatusBar as ExpoStatusBar} from 'expo-status-bar';
 import React from 'react';
-import  { ThemeProvider } from 'styled-components/native'
-import { theme } from './src/infrastructure/theme/'
+import { initializeApp } from 'firebase/app';
+import  { ThemeProvider } from 'styled-components/native';
+import { theme } from './src/infrastructure/theme/';
 import { RestaurantContextProvider } from './src/services/restaurants/restaurant.context';
-import { LocationContextProvider } from "./src/services/location/location.context"
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context"
+import { LocationContextProvider } from "./src/services/location/location.context";
+import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
+import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZjOSwmkDo_OzPoEB5r0W--qM4CyZa4VU",
+  authDomain: "hale-app-eb6c7.firebaseapp.com",
+  projectId: "hale-app-eb6c7",
+  storageBucket: "hale-app-eb6c7.appspot.com",
+  messagingSenderId: "602664219386",
+  appId: "1:602664219386:web:12c4b67169dc66b213cf43",
+};
+
+initializeApp(firebaseConfig);
+
 
 import {
   useFonts as useOswald,
@@ -12,9 +27,11 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { Navigation } from './src/infrastructure/navigation';
+import { AppState } from 'react-native';
 
 
 export default function App() {
+  
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
@@ -30,13 +47,15 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FavouritesContextProvider>
-          <LocationContextProvider>
-            <RestaurantContextProvider>
-              <Navigation /> 
-            </RestaurantContextProvider>
-          </LocationContextProvider>
-        </FavouritesContextProvider>
+        <AuthenticationContextProvider>
+          <FavouritesContextProvider>
+            <LocationContextProvider>
+              <RestaurantContextProvider>
+                <Navigation /> 
+              </RestaurantContextProvider>
+            </LocationContextProvider>
+          </FavouritesContextProvider>
+        </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto"/>
     </>
