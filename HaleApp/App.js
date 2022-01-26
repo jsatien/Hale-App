@@ -27,7 +27,6 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { Navigation } from './src/infrastructure/navigation';
-import { AppState } from 'react-native';
 
 
 export default function App() {
