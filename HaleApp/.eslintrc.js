@@ -6,6 +6,7 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
+        "@react-native-community",
         "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
@@ -21,5 +22,7 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "quotes": [2, "double", { "avoidEscape": true }],
+        "react/prop-types": "off"
     }
 };

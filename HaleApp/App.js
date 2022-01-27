@@ -3,9 +3,6 @@ import React from 'react';
 import { initializeApp } from 'firebase/app';
 import  { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme/';
-import { RestaurantContextProvider } from './src/services/restaurants/restaurant.context';
-import { LocationContextProvider } from "./src/services/location/location.context";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 
@@ -47,13 +44,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantContextProvider>
-                <Navigation /> 
-              </RestaurantContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation /> 
         </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto"/>

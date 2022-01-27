@@ -6,11 +6,13 @@ import {
     AccountCover,
     AccountContainer,
     AuthButton,
+    Title,
 } from "../components/account.style";
 
 export const AccountScreen = ({ navigation }) => {
     return <AccountBackground>
         <AccountCover/>
+        <Title>Hale App Logo Here</Title>
         <AccountContainer>
             <AuthButton 
                 icon="lock-open-outline"
