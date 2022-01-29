@@ -36,3 +36,12 @@ export const SectionEnd = styled(View)`
 export const Open = styled(SvgXml)`
     flex-direction: row;
 `;
+
+export const AnimationWrapper = styled.View`
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 20%;
+    scaleX: 0.8;
+    scaleY: 0.8;
+`;

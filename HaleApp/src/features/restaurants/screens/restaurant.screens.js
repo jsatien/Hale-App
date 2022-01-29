@@ -7,6 +7,8 @@ import { FavouritesBar } from '../../../components/favourites/favourites-bar.com
 import { RestaurantContext } from '../../../services/restaurants/restaurant.context';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import { Search } from '../components/search.component';
+import LottieView from "lottie-react-native";
+import { AnimationWrapper } from "../components/restaurant-info-card.style";
 
 const Loading = styled(ActivityIndicator)`
     margin-left: -25px;
@@ -26,13 +28,15 @@ export const RestaurantScreen = ( { navigation } ) => {
     return (
             <SafeArea>
                 {isLoading && (
-                    <LoadingContainer>
-                        <Loading
-                            size="large"
-                            color="#10460a"
-                            animating={true}                           
+                    <AnimationWrapper>
+                        <LottieView 
+                            key="animation"
+                            autoPlay
+                            loop
+                            resizeMode="cover"
+                            source={require("../../../../assets/food.json")}
                         />
-                    </LoadingContainer>
+                </AnimationWrapper>
                 )
                 }
                 <Search 

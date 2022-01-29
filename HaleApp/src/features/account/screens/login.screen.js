@@ -21,7 +21,7 @@ export const LoginScreen = ({ navigation }) => {
 
     return <AccountBackground>
         <AccountCover/>
-        <Title>Hale App Logo Here</Title>
+        <Title>Hale App Logo/Text Here</Title>
         <AccountContainer>
             <AuthInput
                 label="E-mail"
