@@ -10,6 +10,10 @@ import { RestaurantContextProvider } from "../../services/restaurants/restaurant
 import { LocationContextProvider } from "../../services/location/location.context";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 
+import { SafeArea } from "../../components/utility/safearea.component";
+import { Text } from "../../components/typography/text.component";
+
+
 const Tab = createBottomTabNavigator();
 
 const Tray = () => {

@@ -14,7 +14,10 @@ import {
 export const AccountScreen = ({ navigation }) => {
     return <AccountBackground>
         <AccountCover/>
-        <AnimationWrapper>
+        <AnimationWrapper style={{
+            transform: [{scaleX: 0.7},{scaleY: 0.7}]
+        }}
+        >
             <LottieView 
                 key="animation"
                 autoPlay

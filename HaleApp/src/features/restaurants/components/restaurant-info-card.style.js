@@ -42,6 +42,4 @@ export const AnimationWrapper = styled.View`
     height: 50%;
     position: absolute;
     top: 20%;
-    scaleX: 0.8;
-    scaleY: 0.8;
 `;
