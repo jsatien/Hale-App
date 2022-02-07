@@ -3,6 +3,8 @@ import { View, ActivityIndicator, TouchableOpacity  } from 'react-native';
 import styled from "styled-components/native";
 import LottieView from "lottie-react-native";
 
+import { FadeInView } from "../../../components/animations/fade.animation";
+import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
 import { SafeArea } from '../../../components/utility/safearea.component';
 import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
@@ -64,7 +66,11 @@ export const RestaurantScreen = ( { navigation } ) => {
                             onPress={() => navigation.navigate("RestaurantDetail",
                             { restaurant: item,}
                         )}>
-                            <RestaurantInfoCard restaurant={item} />
+                            <Spacer position="bottom" size="small">
+                                <FadeInView>
+                                    <RestaurantInfoCard restaurant={item} />
+                                </FadeInView>
+                            </Spacer>                           
                         </TouchableOpacity>    
                     );
                     }}
