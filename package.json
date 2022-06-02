@@ -1,0 +1,7 @@
+{
+  "name": "Hale-App",
+  "packageManager": "yarn@3.2.1",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
+}
